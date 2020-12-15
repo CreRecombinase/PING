@@ -812,7 +812,7 @@ copy.set_copy_from_threshFile <- function(copyNumberDF, locusRatioDF, locusCount
   missingLocusList <- names( which( apply( thresholdDF, 1, function(x){ all(is.na(x)) } ) ) )
   
   cat('\nAuto-setting all KIR3DL3 copy to 2.')
-  copyNumberDF[unsetCopySampleList,'KIR3DL3'] <- 2
+  copyNumberDF[rownames(locusRatioDF),'KIR3DL3'] <- 2
   
   cat('\n\nProcessing:')
   for(kirLocus in kirLocusList){
