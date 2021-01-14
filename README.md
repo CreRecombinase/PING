@@ -23,10 +23,10 @@ R
 
 ## Setting up pipeline
 ### Downloading pipeline code
-Option 1: Download zip file `wget https://github.com/wesleymarin/PING/archive/ping-reborn.zip ; unzip ping-reborn.zip`
+Option 1: Download zip file `wget https://github.com/wesleymarin/PING/archive/ping-reborn-docker.zip ; unzip ping-reborn-docker.zip`
 
 Option 2: Clone repository `git clone https://github.com/wesleymarin/PING.git`
-          Switch to docker branch  `git checkout ping-reborn`
+          Switch to docker branch  `git checkout ping-reborn-docker`
 
 
 ## Docker environment variables
@@ -38,21 +38,27 @@ Option 2: Clone repository `git clone https://github.com/wesleymarin/PING.git`
 
 `THREADS` Set the number of threads for PING to use (default 4)
 
-`RESULTS_DIR` Set the master results directory, all pipeline output will be recorded here (default '~/3_test_sequence_results/')
+`OUTDIR` Set the master results directory, all pipeline output will be recorded here (default '~/3_test_sequence_results/')
 
-`SHORTNAME_DELIM` Set a delimiter to shorten sequence ID's, ID will be characters before delim, ID's must still be unique (default '_')
+`SHORTNAMEDELIM` Set a delimiter to shorten sequence ID's, ID will be characters before delim, ID's must still be unique (default '_')
 
-`MIN_DP` Set the minimum alignment depth for SNP calling (default 10)
+`SETUP_HETRATIO` Set the heterozygous determination ratio (default 0.25)
 
-`HET_RATIO` Set the heterozygous determination ratio (default 0.25)
+`FINAL_HETRATIO` Set the heterozygous determination ratio (default 0.25)
+
+`SETUP_MINDP` Set the minimum alignment depth for SNP calling (default 8)
+
+`FINAL_MINDP` Set the minimum alignment depth for SNP calling (default 20)
+
+`COPY_READBOOST` Boolean variable to set whether to process cross-mapped reads during initial genotype determination (default T)
 
 `SETUP_READBOOST` Boolean variable to set whether to process cross-mapped reads during initial genotype determination (default T)
 
 `FINAL_READBOOST` Boolean variable to set whether to process cross-mapped reads during final genotype determinatin (default F)
 
-`READBOOST_THRESH` Integer variable to set the threshold to be used for cross-mapped read processing, higher value = more stringent processing (default 6)
+`READBOOST_THRESH` Integer variable to set the threshold to be used for cross-mapped read processing, higher value = more stringent processing (default 2)
 
-`COPY_FULLALIGN` Boolean variable to set whether the full reference set is used for copy number determination (default T)
+`COPY_FULLALIGN` Boolean variable to set whether the full reference set is used for copy number determination (default F)
 
 `ALLELE_FULLALIGN` Boolean variable to set whether the full reference set is used for intial genotype determination (default F)
 
